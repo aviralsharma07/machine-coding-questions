@@ -1,13 +1,13 @@
 "use client";
-import { useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 
 const TodoList = () => {
   const [todoList, setTodoList] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
-  const [editMode, setEditMode] = useState<Boolean>(false);
+  const [editMode, setEditMode] = useState<boolean>(false);
   const [editIndex, setEditIndex] = useState<number | null>();
 
-  const handleAddTodo = (event: any) => {
+  const handleAddTodo = (event: FormEvent) => {
     event.preventDefault();
     const inputText = inputRef.current?.value.trim();
     if (inputText && inputText !== "") {
